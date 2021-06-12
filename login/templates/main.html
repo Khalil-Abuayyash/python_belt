@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registraation</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome!</h1>
+    </header>
+    <main>
+        <form  action="/main/login" method="POST">
+            {% csrf_token %}
+            <h2>Login</h2>
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>
+                            {{message}}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <input type="hidden" name="operation" value="login">
+            Email: <input type="text" name="email">
+            Password: <input type="password" name="password">
+            <input type="submit" value="Login">
+        </form>
+
+        
+        <form  action="/main/login" method="POST" id="register">
+            {% csrf_token %}
+            <h2>Registration</h2>
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>
+                            {{message}}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <input type="hidden" name="operation" value="register">
+            <article>
+                <section>
+                    Name: <input type="text" name="name">
+                    Alias: <input type="text" name="alias">
+                    <!-- Last Name: <input type="text" name="last_name"> -->
+                    Email: <input type="text" name="email">
+                </section>
+                <section>
+                    Password: <input type="password" name="password">
+                    Confirm Password: <input type="password" name="confirm_password">
+                    Birth of date: <input type="date" name="birth_date">
+                </section>
+            </article>
+            <input type="submit" value="Register">
+        </form>
+    </main>
+</body>
+</html>

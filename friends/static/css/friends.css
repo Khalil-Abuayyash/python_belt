@@ -1,0 +1,14 @@
+body {
+    width: 970px;
+    margin: 0 auto;
+}
+
+body > * {
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

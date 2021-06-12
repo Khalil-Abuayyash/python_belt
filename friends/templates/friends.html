@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/friends.css' %}">
+</head>
+<body>
+    <header>
+        <h2>Hello, {{request.session.name}}!</h2>
+        <a href="/main/logout">Logout</a>
+    </header>
+    <main>
+        {% if friends %}
+        
+            <h4>Here is a list of yout friends:</h4>
+            <table class="table">
+                <tr>
+                    <th>Alias</th>
+                    <th>Action</th>
+                </tr>
+                {% for friend in friends%}
+                    <tr>
+                        <td>{{friend.alias}}</td>
+                        <td>
+                            <a href="/user/{{friend.id}}"><button>View profile</button></a>
+                            <a href="/friends/remove_friend/{{friend.id}}"><button>Remove as Friend</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                
+            </table>
+        {% else %}
+            <h3>You don't have friends yet.</h3>
+        {% endif %}
+
+        <h4>Other Users not on your friend's list:</h4>
+        <table class="table">
+            <tr>
+                <th>Alias</th>
+                <th>Action</th>
+            </tr>
+            {% for stranger in strangers  %}
+                <tr>
+                    <td><a href="/user/{{stranger.id}}">{{stranger.alias}}</a></td>
+                    <td><a href="/friends/add_friend/{{stranger.id}}"><button>Add as friend</button></a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>

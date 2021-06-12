@@ -1,0 +1,88 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    width: 970px;
+    margin: 0 auto;
+}
+
+body > * {
+    margin: 0px auto 10px auto;
+}
+
+/* header {
+    margin: 0 auto;
+} */
+
+/* header > h1 {
+    margin: 0 auto;
+} */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+header > a{
+    color: black;
+    font-size: large;
+    width: fit-content;
+    align-self: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h2 {
+    width: fit-content;
+}
+
+form {
+    background-color: blue;
+    color: white;
+    width: fit-content;
+    padding: 20px;
+    font-size: large;
+    border-radius: 5px;
+    border: 2px solid black;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    height: fit-content;
+}
+
+form > article {
+    display: flex;
+    justify-content: space-between;
+}
+
+form > *, form > article > section > * {
+    margin: 0px auto 10px auto;
+    padding: 10px;
+}
+
+form > article > section {
+    padding: 10px;
+}
+
+input {
+    border: 3px solid black;
+    display: block;
+}
+
+form > a {
+    color: black;
+    font-size: large;
+    width: fit-content;
+    align-self: center;
+    margin: 0 auto;
+    border: 3px solid black;
+    font-size: large;
+    background-color: white;
+    display: block;
+}
